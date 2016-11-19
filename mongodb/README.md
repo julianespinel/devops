@@ -2,10 +2,14 @@
 
 ### Make a Backup
 
-1. `mongodump --gzip --archive=stockreader_dump.gz --db stockreaderdb`
-1. `du -hs stockreader_dump.gz`
+1. Make a compressed backup of a given database:<br>
+   `mongodump --gzip --archive=<file-name>.gz --db <database-name>`
+1. Check the size of the output file:<br>
+   `du -hs <file-name>.gz`
 
 ### Restore a backup
 
-1. `gzip -d stockreader_dump.gz`
-1. `mongorestore --archive=stockreader_dump --db stockreaderdb`
+1. Decompress the backup:<br>
+   `gzip -d <file-name>.gz`
+1. Restore the backup to a given database:<br>
+   `mongorestore --archive=<file-name> --db <database-name>`
